@@ -3,16 +3,16 @@ package model;
 import java.util.Objects;
 
 public final class Part {
-    private final  Long id;
+    private final Long id;
 
     private final Brand brand;// Make
     private final String model;
-    private final  Integer year;
+    private final Integer year;
 
 
     public Part(Long id, Brand brand, String model, Integer year) {
         this.id = id;
-        this.model=model;
+        this.model = model;
         this.brand = brand;
         this.year = year;
     }

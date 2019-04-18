@@ -1,11 +1,9 @@
 package model;
 
-import sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator;
-
 public class Student {
 
-    private  String name;
-    private  Integer roomNumber;
+    private String name;
+    private Integer roomNumber;
 
     public Student(String name, Integer roomNumber) {
         this.name = name;

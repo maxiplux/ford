@@ -5,13 +5,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import repository.PartRepository;
-import repository.db.SingletonDatabase;
 import repository.imp.PartRepositoryImpl;
 import service.ServicesPart;
-
-import static org.junit.Assert.*;
 
 public class ServicesPartImpTest {
 
@@ -19,15 +14,10 @@ public class ServicesPartImpTest {
     private ServicesPart services;
 
 
-
-
-
-
-
     @Before
     public void setUp() throws Exception {
 
-        this.services=new  ServicesPartImp(new PartRepositoryImpl());
+        this.services = new ServicesPartImp(new PartRepositoryImpl());
 
 
     }
@@ -44,9 +34,9 @@ public class ServicesPartImpTest {
     @Test
     public void add() {
         /// AAA Patter
-        String maker="Ford";
-        services.add(maker,"Fiesta",2019);
-        Assert.assertEquals (1,services.getall().size());
+        String maker = "Ford";
+        services.add(maker, "Fiesta", 2019);
+        Assert.assertEquals(1, services.getall().size());
 
 
     }
@@ -54,42 +44,42 @@ public class ServicesPartImpTest {
     @Test
     public void remove() {
         /// AAA Patter
-        String maker="Ford";
-        Part  part=services.add(maker,"Fiesta",2019).get();
+        String maker = "Ford";
+        Part part = services.add(maker, "Fiesta", 2019).get();
 
 
         services.remove(part.getId());
-        Assert.assertEquals (0,services.getall().size());
+        Assert.assertEquals(0, services.getall().size());
     }
 
     @Test
     public void searchById() {
         /// AAA Patter
 
-        String maker="Ford";
-        Part  part=services.add(maker,"Fiesta",2019).get();
-        Assert.assertEquals (part,services.Search(part.getId()).get());
+        String maker = "Ford";
+        Part part = services.add(maker, "Fiesta", 2019).get();
+        Assert.assertEquals(part, services.Search(part.getId()).get());
     }
 
     @Test
     public void getall() {
 
 
-        String maker="Ford";
+        String maker = "Ford";
 
-        services.add(maker,"Fiesta",2019);
-        services.add(maker,"Fiesta",2017);
-        services.add(maker,"Fiesta",2020);
-        Assert.assertEquals (3,services.getall().size());
+        services.add(maker, "Fiesta", 2019);
+        services.add(maker, "Fiesta", 2017);
+        services.add(maker, "Fiesta", 2020);
+        Assert.assertEquals(3, services.getall().size());
 
     }
 
     @Test
     public void searchByMakerAndModel() {
 
-        String maker="Ford";
-        Part  part=services.add(maker,"Fiesta",2019).get();
-        Assert.assertEquals (1,services.Search(maker,"Fiesta").size());
+        String maker = "Ford";
+        Part part = services.add(maker, "Fiesta", 2019).get();
+        Assert.assertEquals(1, services.Search(maker, "Fiesta").size());
 
     }
 }

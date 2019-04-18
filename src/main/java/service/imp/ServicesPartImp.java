@@ -5,30 +5,27 @@ import repository.PartRepository;
 import repository.imp.PartRepositoryImpl;
 import service.ServicesPart;
 
-import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
 public class ServicesPartImp implements ServicesPart {
 
 
-    private PartRepository repository ;
+    private PartRepository repository;
 
-    public ServicesPartImp()
-    {
+    public ServicesPartImp() {
         repository = new PartRepositoryImpl();
     }
 
     // Dependency injection patter
-    public ServicesPartImp(PartRepository repository)
-    {
+    public ServicesPartImp(PartRepository repository) {
         this.repository = repository;
     }
 
 
     @Override
     public Optional<Part> add(String brand, String model, int year) {
-        return repository.add(brand,model,year);
+        return repository.add(brand, model, year);
     }
 
     @Override
@@ -39,7 +36,7 @@ public class ServicesPartImp implements ServicesPart {
 
     @Override
     public List<Part> Search(String brand, String model) {
-        return this.repository.Search(brand,model);
+        return this.repository.Search(brand, model);
     }
 
 
